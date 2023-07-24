@@ -6,8 +6,12 @@
     xmlns:local="clr-namespace:diary"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
+    <!--<ShellContent
         ContentTemplate="{DataTemplate local:ListPage}"
-        Route="Views.ListPage" />
+        Route="Views.ListPage" />-->
+    
+    <ShellContent
+        ContentTemplate="{DataTemplate local:EditPage}"
+        Route="Views.EditPage" />
 
 </Shell>

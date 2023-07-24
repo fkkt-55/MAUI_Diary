@@ -34,8 +34,18 @@ public partial class ListPage : ContentPage
         var alert = DisplayAlert("БъЬт", Constants.DatabasePath, "OK");
     }
 
-    private void OnAddFabClicked(object sender, EventArgs e)
+    private async void NewItem(object sender, EventArgs e)
+    {
+       await Shell.Current.GoToAsync(AppShell.PageName.Edit.ToString());
+    }
+
+    private void ShowVersion(object sender, EventArgs e)
     {
 
+    }
+
+    private void Exit(object sender, EventArgs e)
+    {
+        Application.Current.Quit();
     }
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="diary.ListPage"
+             NavigationPage.HasNavigationBar="False">
+    <AbsoluteLayout>
+        <ListView x:Name="ListPageView"
+              ItemSelected="ListPageViewItemSelected"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" 
+                                 HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding CreateTime}"
+                               VerticalOptions="Start" />
+                            <Label Text="{Binding Content}"
+                               VerticalOptions="Start"
+                               MaxLines="1"/>
+                            <BoxView HeightRequest="1" 
+                                 Color="Blue"
+                                 HorizontalOptions="FillAndExpand" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ContentView
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds="1,1">
+            <ImageButton
+                x:Name="AddFab"
+                Clicked="OnAddFabClicked"
+                Source="add.png"
+                CornerRadius="28"
+                HeightRequest="56"
+                WidthRequest="56"
+                Margin="16"
+                Padding="16">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="1"/>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="Scale" Value="0.9"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </ImageButton>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>
